@@ -1,0 +1,323 @@
+<!DOCTYPE html> 
+<html lang="id"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Login SSO Undip</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<style> 
+* { 
+box-sizing: border-box; 
+} 
+body { 
+margin: 0; 
+font-family: 'Segoe UI', sans-serif; 
+background: linear-gradient(120deg, #a1c4fd, #c2e9fb); 
+background-size: cover; 
+height: 100vh; 
+display: flex; 
+      justify-content: center; 
+      align-items: center; 
+    } 
+ 
+    .container { 
+      background: rgba(255, 255, 255, 0.85); 
+      backdrop-filter: blur(10px); 
+      padding: 30px; 
+      border-radius: 15px; 
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+      text-align: center; 
+      width: 90%; 
+      max-width: 400px; 
+    } 
+ 
+    .container img { 
+      width: 80px; 
+      margin-bottom: 15px; 
+    } 
+ 
+    h2 { 
+      margin: 10px 0 5px; 
+      color: #003366; 
+    } 
+ 
+    p { 
+      color: #555; 
+      margin-bottom: 25px; 
+      font-size: 14px; 
+    } 
+ 
+    input[type="text"], 
+    input[type="password"] { 
+      width: 100%; 
+      padding: 12px; 
+      margin: 8px 0; 
+      border: 1px solid #ccc; 
+      border-radius: 8px; 
+    } 
+ 
+    .btn { 
+      width: 100%; 
+      padding: 12px; 
+      margin-top: 10px; 
+      border: none; 
+      border-radius: 8px; 
+      font-size: 14px; 
+      cursor: pointer; 
+    } 
+ 
+    .btn-login { 
+      background-color: #003366; 
+      color: white; 
+    } 
+ 
+    .btn-login:hover { 
+      background-color: #002244; 
+    } 
+ 
+    .btn-reset { 
+      background-color: #e74c3c; 
+      color: white; 
+    } 
+ 
+    .btn-reset:hover { 
+      background-color: #c0392b; 
+    } 
+ 
+    .links { 
+      margin-top: 15px; 
+      font-size: 13px; 
+    } 
+ 
+    .links a { 
+      display: block; 
+      margin-top: 6px; 
+      color: #003366; 
+      text-decoration: none; 
+    } 
+ 
+.links a.red { 
+color: red; 
+} 
+footer { 
+position: fixed; 
+bottom: 10px; 
+width: 100%; 
+text-align: center; 
+font-size: 12px; 
+color: #444; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="container"> 
+<img src="https://upload.wikimedia.org/wikipedia/id/f/f6/Logo_Undip.png" alt="Logo 
+Undip"> 
+<h2>Single Sign On (SSO)</h2> 
+<p>Universitas Diponegoro</p> 
+<input type="text" placeholder="NIM / NIP / Email Resmi Undip"> 
+<input type="password" placeholder="Password"> 
+<button class="btn btn-login">     
+<button class="btn btn-reset">    
+<div class="links"> 
+LOGIN</button> 
+Reset Password</button> 
+<a class="red" href="#">Belum punya akun? Daftar sekarang!</a> 
+<a href="#">Pendaftaran alumni klik di sini</a> 
+</div> 
+</div> 
+<footer> 
+© 2025 DSTI Universitas Diponegoro, All rights reserved. 
+</footer> 
+</body> 
+</html>
+
+
+
+<!DOCTYPE html> 
+<html lang="id"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Dashboard SSO UNDIP</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<style> 
+body { 
+margin: 0; 
+font-family: 'Segoe UI', sans-serif; 
+background-color: #f4f4f4; 
+color: #333; 
+} 
+header { 
+background-color: #003366; 
+color: white; 
+padding: 20px; 
+text-align: center; 
+} 
+.container { 
+padding: 30px 20px; 
+max-width: 1200px; 
+margin: auto; 
+} 
+h2 { 
+margin-top: 40px; 
+margin-bottom: 10px; 
+color: #003366; 
+} 
+.section-sub { 
+color: #888; 
+font-size: 14px; 
+margin-bottom: 20px; 
+    } 
+ 
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+      gap: 20px; 
+    } 
+ 
+    .card { 
+      background: white; 
+      padding: 20px; 
+      border-radius: 12px; 
+      text-align: center; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+      transition: transform 0.2s; 
+    } 
+ 
+    .card:hover { 
+      transform: translateY(-5px); 
+    } 
+ 
+    .card img { 
+      height: 48px; 
+      margin-bottom: 10px; 
+    } 
+ 
+    .card strong { 
+      display: block; 
+      margin-bottom: 5px; 
+      font-size: 15px; 
+      color: #003366; 
+    } 
+ 
+    .card p { 
+      font-size: 13px; 
+      margin: 0; 
+      color: #555; 
+    } 
+ 
+    footer { 
+text-align: center; 
+padding: 20px; 
+font-size: 12px; 
+color: #777; 
+} 
+</style> 
+</head> 
+<body> 
+<header> 
+<h1>Dashboard SSO UNDIP</h1> 
+<p>Universitas Diponegoro</p> 
+</header> 
+<div class="container"> 
+<h2>Fasilitas</h2> 
+<div class="section-sub">Facilities</div> 
+<div class="grid"> 
+<div class="card"> 
+<img src="https://img.icons8.com/color/48/000000/outlook.png" alt="Email"> 
+<strong>E-mail</strong> 
+<p>Outlook (10 belum dibaca)</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/color/48/000000/microsoft-office-2019.png" 
+alt="Office"> 
+<strong>Office</strong> 
+<p>Office 365 Cloud</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/fluency/48/000000/onedrive.png" 
+alt="OneDrive"> 
+<strong>OneDrive</strong> 
+<p>Penyimpanan online</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/color/48/000000/microsoft-teams.png" 
+alt="Teams"> 
+<strong>Teams</strong> 
+<p>Microsoft Teams</p> 
+</div> 
+</div> 
+<h2>Aplikasi & Layanan</h2> 
+<div class="section-sub">Applications & Services</div> 
+<div class="grid"> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios-filled/50/000000/museum.png"/> 
+<strong>SIAP</strong> 
+<p>Sistem Akademik dan Penelitian</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/faq.png"/> 
+<strong>HALO UNDIP</strong> 
+<p>Layanan Informasi</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios-filled/50/000000/online-class.png"/> 
+<strong>Online Course</strong> 
+<p>Kuliah Online</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/blog.png"/> 
+<strong>Pendaftaran Blog</strong> 
+<p>Buat blog mahasiswa</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/ticket.png"/> 
+<strong>E-Ticketing Atribut</strong> 
+<p>Pemesanan atribut</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/open-book--v1.png"/> 
+<strong>Jurnal yang Dilanggan</strong> 
+<p>Scopus, Elsevier, dll</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/survey.png"/> 
+<strong>Form</strong> 
+<p>Form, survei, e-vote</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/calendar--v1.png"/> 
+<strong>Event</strong> 
+<p>Kegiatan Mahasiswa</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/graduation-cap.png"/> 
+<strong>Scholarship</strong> 
+<p>Informasi Beasiswa</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/vote.png"/> 
+<strong>E-Vote BEM</strong> 
+<p>Pemilu BEM 2025</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/e-learning.png"/> 
+<strong>Students Scientific Competition</strong> 
+<p>PKM dan Kompetisi</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/magazine.png"/> 
+<strong>Undip's E-Journal</strong> 
+<p>Portal Jurnal UNDIP</p> 
+</div> 
+<div class="card"> 
+<img src="https://img.icons8.com/ios/50/000000/database.png"/> 
+<strong>SIASAT</strong> 
+<p>Portal Akademik</p> 
+</div> 
+</div> 
+</div> 
+<footer> 
+© 2025 Universitas Diponegoro. All rights reserved. 
+</footer> 
+</body> 
+</html>

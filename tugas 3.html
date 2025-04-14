@@ -1,0 +1,240 @@
+<!DOCTYPE html> 
+<html lang="id"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>Pink Inventory & Sales App</title> 
+<style> 
+* { 
+box-sizing: border-box; 
+font-family: 'Segoe UI', sans-serif; 
+} 
+body { 
+margin: 0; 
+      background-color: #ffe6f0; 
+      color: #333; 
+    } 
+ 
+    header { 
+      background-color: #ffb6c1; 
+      padding: 20px; 
+      text-align: center; 
+      color: white; 
+      font-size: 24px; 
+      font-weight: bold; 
+      border-bottom: 4px solid #ff69b4; 
+    } 
+ 
+    nav { 
+      background-color: #ffc0cb; 
+      padding: 10px; 
+      display: flex; 
+      justify-content: center; 
+      gap: 20px; 
+    } 
+ 
+    nav a { 
+      text-decoration: none; 
+      color: white; 
+      background-color: #ff69b4; 
+      padding: 10px 20px; 
+      border-radius: 20px; 
+      transition: background-color 0.3s; 
+    } 
+ 
+    nav a:hover { 
+      background-color: #ff1493; 
+    } 
+ 
+    .container { 
+      padding: 20px; 
+    } 
+ 
+    .card { 
+background-color: white; 
+border-radius: 20px; 
+padding: 20px; 
+margin-bottom: 20px; 
+box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+} 
+h2 { 
+color: #ff69b4; 
+margin-top: 0; 
+} 
+input[type="text"], input[type="number"] { 
+width: 100%; 
+padding: 10px; 
+margin-top: 10px; 
+margin-bottom: 20px; 
+border: 1px solid #ddd; 
+border-radius: 10px; 
+} 
+button { 
+background-color: #ff69b4; 
+color: white; 
+padding: 10px 20px; 
+border: none; 
+border-radius: 20px; 
+cursor: pointer; 
+transition: background-color 0.3s; 
+} 
+button:hover { 
+background-color: #ff1493; 
+} 
+table { 
+width: 100%; 
+border-collapse: collapse; 
+margin-top: 10px; 
+} 
+th, td { 
+padding: 10px; 
+text-align: left; 
+border-bottom: 1px solid #eee; 
+} 
+th { 
+background-color: #ffe6f0; 
+} 
+</style> 
+</head> 
+<body> 
+<header> 
+Aplikasi Persediaan & Penjualan 
+</header> 
+<nav> 
+<a href="#">Dashboard</a> 
+<a href="#">Persediaan</a> 
+<a href="#">Penjualan</a> 
+<a href="#">Laporan</a> 
+</nav> 
+<div class="container"> 
+<!-- Dashboard --> 
+<div class="card"> 
+<h2>      
+Dashboard</h2> 
+<p>Total Barang: <span id="totalBarang">2</span></p> 
+<p>Total Penjualan: <span id="totalPenjualan">0</span></p> 
+</div> 
+<!-- Form Tambah Barang --> 
+<div class="card"> 
+<h2>  
+Tambah Barang Persediaan</h2> 
+<input type="text" id="namaBarang" placeholder="Nama Barang"> 
+<input type="number" id="stokBarang" placeholder="Jumlah Stok"> 
+<input type="number" id="hargaBarang" placeholder="Harga Beli"> 
+<button onclick="tambahBarang()">Tambah Barang</button> 
+</div> 
+<!-- Tabel Barang --> 
+<div class="card"> 
+<h2>       
+Daftar Barang</h2> 
+<table id="tabelBarang"> 
+<thead> 
+<tr> 
+<th>Nama Barang</th> 
+<th>Stok</th> 
+<th>Harga Beli</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr> 
+<td>Kue Strawberry</td> 
+<td>20</td> 
+<td>10000</td> 
+</tr> 
+<tr> 
+<td>Minuman Bubble</td> 
+<td>15</td> 
+<td>8000</td> 
+</tr> 
+</tbody> 
+</table> 
+</div> 
+<!-- Form Penjualan --> 
+<div class="card"> 
+<h2>      
+Tambah Data Penjualan</h2> 
+<input type="text" id="namaJual" placeholder="Nama Barang"> 
+<input type="number" id="jumlahJual" placeholder="Jumlah Terjual"> 
+<input type="number" id="hargaJual" placeholder="Harga Jual per Item"> 
+<button onclick="tambahPenjualan()">Catat Penjualan</button> 
+</div> 
+<!-- Tabel Penjualan --> 
+<div class="card"> 
+<h2>    
+Riwayat Penjualan</h2> 
+<table id="tabelPenjualan"> 
+<thead> 
+<tr> 
+<th>Nama Barang</th> 
+<th>Jumlah</th> 
+<th>Harga Jual</th> 
+<th>Total</th> 
+</tr> 
+</thead> 
+<tbody> 
+</tbody> 
+</table> 
+</div> 
+</div> 
+<script> 
+function tambahBarang() { 
+const nama = document.getElementById("namaBarang").value; 
+const stok = document.getElementById("stokBarang").value; 
+const harga = document.getElementById("hargaBarang").value; 
+if (nama && stok && harga) { 
+const table = 
+document.getElementById("tabelBarang").getElementsByTagName("tbody")[0]; 
+const newRow = table.insertRow(); 
+newRow.insertCell(0).innerText = nama; 
+newRow.insertCell(1).innerText = stok; 
+newRow.insertCell(2).innerText = harga; 
+// Reset input 
+document.getElementById("namaBarang").value = ''; 
+document.getElementById("stokBarang").value = ''; 
+document.getElementById("hargaBarang").value = ''; 
+updateTotalBarang(); 
+} else { 
+alert("Mohon lengkapi semua data barang!"); 
+} 
+} 
+function tambahPenjualan() { 
+const nama = document.getElementById("namaJual").value; 
+const jumlah = document.getElementById("jumlahJual").value; 
+const harga = document.getElementById("hargaJual").value; 
+if (nama && jumlah && harga) { 
+const total = jumlah * harga; 
+const table = 
+document.getElementById("tabelPenjualan").getElementsByTagName("tbody")[0]; 
+const newRow = table.insertRow(); 
+newRow.insertCell(0).innerText = nama; 
+newRow.insertCell(1).innerText = jumlah; 
+newRow.insertCell(2).innerText = harga; 
+newRow.insertCell(3).innerText = total; 
+// Reset input 
+document.getElementById("namaJual").value = ''; 
+document.getElementById("jumlahJual").value = ''; 
+document.getElementById("hargaJual").value = ''; 
+updateTotalPenjualan(); 
+} else { 
+alert("Mohon lengkapi semua data penjualan!"); 
+} 
+} 
+function updateTotalBarang() { 
+const table = 
+document.getElementById("tabelBarang").getElementsByTagName("tbody")[0]; 
+document.getElementById("totalBarang").innerText = table.rows.length; 
+} 
+function updateTotalPenjualan() { 
+const table = 
+document.getElementById("tabelPenjualan").getElementsByTagName("tbody")[0]; 
+let total = 0; 
+for (let i = 0; i < table.rows.length; i++) { 
+total += parseInt(table.rows[i].cells[3].innerText); 
+} 
+document.getElementById("totalPenjualan").innerText = total; 
+} 
+// Inisialisasi awal 
+updateTotalBarang(); 
+</script> 
+</body> 
+</html>
